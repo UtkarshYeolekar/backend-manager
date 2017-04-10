@@ -1,0 +1,13 @@
+{
+  "name": "backend-manager",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "~4.14.1",
+    "mongodb": "^2.2.24",
+    "winston": "^2.3.1"
+  }
+}

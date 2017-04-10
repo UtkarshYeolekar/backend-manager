@@ -6,7 +6,7 @@ module.exports = () => {
   logger.debug("Starting backend...");
 
   app.get('/', function (req, res) {
-    res.send('Hello World!')
+    res.send('Hello From Backend!')
   });
 
   app.get('/crash', function (req, res) {

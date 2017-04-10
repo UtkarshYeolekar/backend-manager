@@ -14,8 +14,6 @@ COPY "app.js" "$app"
 
 COPY "src" "$app/src"
 
-#COPY "process.yml" "$app"
-
 EXPOSE 8080
 
 CMD ["node", "app.js"]

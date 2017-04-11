@@ -14,6 +14,9 @@ try{
              logger.debug('Total Rows: ' + count);
             startServer();
         });
+    })
+     .catch((err) => {
+                     logger.debug("Error in connecting to the tennant database");
     });
 }
 catch(err)

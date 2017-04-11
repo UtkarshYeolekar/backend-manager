@@ -6,7 +6,8 @@ const tennantDbConfig = {
     domain: process.env.CLOUD_MONGO_SERVICE_SERVICE_HOST,
     username: process.env.MONGO_USER,
     password: process.env.MONGO_PASSWORD,
-    database: process.env.MONGO_DATABASE
+    database: process.env.MONGO_DATABASE,
+    authSource: "admin"
 }
 
 const dumpEnv = (port, ip, username, password, database)=>{

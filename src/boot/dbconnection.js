@@ -18,20 +18,34 @@ let getConnectionUrl = () => {
         return constr;
     }
 
+let getTennantDBConnectionUrl = () =>{
+    let constr = null;
+
+    if(tennantDbConfig.username && tennantDbConfig.password && tennantDbConfig.domain && tennantDbConfig.port)
+            constr =  "mongodb://"+ tennantDbConfig.username +":"+ tennantDbConfig.password +"@"+ tennantDbConfig.domain +":"+ tennantDbConfig.port;
+
+        if(constr && tennantDbConfig.authSource)
+            constr += "/?authSource="+ tennantDbConfig.authSource;
+
+        return constr;
+    
+
+}
+
 let getConnection = () => {
        
         if(connection === null) {
-            let constr = getConnectionUrl();
+            let constr = getTennantDBConnectionUrl();
 
  if(constr!=null) {
                 return MongoClient.connect(constr)
                 .then((conn) => {
-                     logger.debug("Cloud Database Connection Established.")
+                     logger.debug("Tennant Database Connection Established.")
                     connection = conn;
                     return Promise.resolve(conn);
                 })
                 .catch((err) => {
-                     logger.debug("Cloud Database Connection Error.")
+                     logger.debug("Tennat Database Connection Error.")
                     return Promise.reject("Database Connection Error.")
                 })
             }

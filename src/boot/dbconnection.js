@@ -22,7 +22,7 @@ let getTennantDBConnectionUrl = () =>{
     let constr = null;
 
     if(tennantDbConfig.username && tennantDbConfig.password && tennantDbConfig.domain && tennantDbConfig.port)
-            constr =  "mongodb://"+ tennantDbConfig.username +":"+ tennantDbConfig.password +"@"+ tennantDbConfig.domain;
+            constr =  "mongodb://"+ tennantDbConfig.username +":"+ tennantDbConfig.password +"@"+"cloud-mongo-service:27017";
 
         if(constr && tennantDbConfig.authSource)
             constr += "/?authSource="+ tennantDbConfig.authSource;
@@ -36,7 +36,7 @@ let getConnection = () => {
         if(connection === null) {
             let constr = getTennantDBConnectionUrl();
             logger.debug(`connectionUrl: ${constr}`);
- if(constr!=null) {
+    if(constr!=null) {
                 return MongoClient.connect(constr)
                 .then((conn) => {
                      logger.debug("Tennant Database Connection Established.")

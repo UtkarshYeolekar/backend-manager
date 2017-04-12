@@ -7,6 +7,7 @@ const tennantDbConfig = {
     username: process.env.MONGO_USER,
     password: process.env.MONGO_PASSWORD,
     database: process.env.MONGO_DATABASE,
+    tcp:process.env.CLOUD_MONGO_SERVICE_PORT,
     authSource: "admin"
 }
 

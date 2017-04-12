@@ -16,7 +16,8 @@ try{
         });
     })
      .catch((err) => {
-                     logger.debug("Error in connecting to the tennant database");
+                     logger.debug("Error in connecting to the tennantDB");
+                     logger.debug(err);
     });
 }
 catch(err)

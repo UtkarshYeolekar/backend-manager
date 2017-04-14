@@ -2,12 +2,12 @@
 const logger = require("../utils/logger");
 
 const tennantDbConfig = {
-    port: process.env.CLOUD_MONGO_SERVICE_SERVICE_PORT,
-    domain: process.env.CLOUD_MONGO_SERVICE_SERVICE_HOST,
+    port: process.env.MONGODB_SERVICE_PORT,
+    domain: process.env.MONGODB_SERVICE_HOST,
     username: process.env.MONGO_USER,
     password: process.env.MONGO_PASSWORD,
     database: process.env.MONGO_DATABASE,
-    tcp:process.env.CLOUD_MONGO_SERVICE_PORT,
+    tcp:process.env.MONGODB_PORT,
     authSource: "admin"
 }
 

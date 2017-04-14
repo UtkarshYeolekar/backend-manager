@@ -1,9 +1,10 @@
-const startServer = require("./src/boot/backendServer.js");
-const logger = require("./src/utils/logger");
-let mongodb = require('mongodb'),
+const startServer = require("./src/boot/backendServer.js"),
+    logger = require("./src/utils/logger"),
+    mongodb = require('mongodb'),
     connection = require('./src/boot/dbconnection.js'),
-    MongoClient = mongodb.MongoClient;
-let tennantDB = require('./src/boot/db-env').tennantDbConfig.database;
+    MongoClient = mongodb.MongoClient,
+    tennantDB = require('./src/boot/db-env').tennantDbConfig.database,
+    redisClient = require('./src/boot/redis-connect.js');
 // Connect to the db
 try{
     connection.getConnection()
@@ -13,6 +14,7 @@ try{
             if (err) throw err;
              logger.debug('Total Rows: ' + count);
             startServer();
+            redisClient();
         });
     })
      .catch((err) => {

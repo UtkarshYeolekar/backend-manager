@@ -11,14 +11,20 @@ const tennantDbConfig = {
     authSource: "admin"
 }
 
+const redisConfig = {
+    host : process.env.REDIS_SERVICE_HOST,
+    port : 6379
+}
+
 const dumpEnv = (port, ip, username, password, database)=>{
     logger.debug(`port: ${port}`);
     logger.debug(`Domain: ${ip}`);
     logger.debug(`DB UserName: ${username}`);
     logger.debug(`DB Password: ${password}`);
     logger.debug(`Database Name: ${database}`);
+    logger.debug(`Redis Host : ${process.env.REDIS_SERVICE_HOST}`);
 };
 
 dumpEnv(tennantDbConfig.port,tennantDbConfig.domain,tennantDbConfig.username,tennantDbConfig.password,tennantDbConfig.database);
 
-module.exports = {tennantDbConfig}
+module.exports = {tennantDbConfig,redisConfig}

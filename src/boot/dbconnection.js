@@ -22,7 +22,7 @@ let getTennantDBConnectionUrl = () =>{
     let constr = null;
 
     if(tennantDbConfig.username && tennantDbConfig.password && tennantDbConfig.domain && tennantDbConfig.port)
-            constr =  "mongodb://"+ tennantDbConfig.username +":"+ tennantDbConfig.password +"@mongodb/"+tennantDbConfig.database;
+            constr =  "mongodb://"+ tennantDbConfig.username +":"+ tennantDbConfig.password +"@"+tennantDbConfig.namespace+".mongodb/"+tennantDbConfig.database;
 
        /* if(constr && tennantDbConfig.authSource)
             constr += "/?authSource="+ tennantDbConfig.authSource;

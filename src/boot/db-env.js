@@ -8,7 +8,8 @@ const tennantDbConfig = {
     password: process.env.MONGO_PASSWORD,
     database: process.env.MONGO_DATABASE,
     tcp:process.env.MONGODB_PORT,
-    authSource: "admin"
+    authSource: "admin",
+    namespace: process.env.POD_NAMESPACE
 }
 
 const redisConfig = {
